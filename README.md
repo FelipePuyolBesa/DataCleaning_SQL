@@ -22,7 +22,7 @@ Link to Alex's playlist. https://www.youtube.com/watch?v=8rO7ztF4NtU&list=PLUaB-
 	SELECT TOP 1000 *
 	FROM Nashville..Houses;
 	
-!Casas1
+![Casas1](https://user-images.githubusercontent.com/124479181/217111320-6910a205-fd9b-41d6-a6d2-dd7f0485a5c2.png)
 
 
 ## Date standardization (SaleDate)
@@ -32,7 +32,7 @@ Link to Alex's playlist. https://www.youtube.com/watch?v=8rO7ztF4NtU&list=PLUaB-
 
 	  SELECT SaleDate
 	  FROM Nashville..Houses;
-!Casas2
+![Casas2](https://user-images.githubusercontent.com/124479181/217111404-42e84d5f-2053-41cb-990c-fa25039575d2.png)
 
   ### Display of modification of the data type to Date
 
@@ -54,7 +54,7 @@ Link to Alex's playlist. https://www.youtube.com/watch?v=8rO7ztF4NtU&list=PLUaB-
 
 	  ALTER TABLE Nashville..Houses
 	  DROP COLUMN SaleDate;
-!Casas3
+![Casas3](https://user-images.githubusercontent.com/124479181/217111456-7f5b553b-ae79-4394-a56c-90a389bf6bb3.png)
 
 
   ### Checking and counting null values ​​for SaleDate
@@ -84,9 +84,10 @@ Link to Alex's playlist. https://www.youtube.com/watch?v=8rO7ztF4NtU&list=PLUaB-
 	FROM Nashville..Houses
 	WHERE PropertyAddress IS NULL;
 	
-!Casas4
+![Casas4](https://user-images.githubusercontent.com/124479181/217111490-69658a16-d370-49c3-9e9d-9e2c79b53e3d.png)
 
-!Casas5
+![Casas5](https://user-images.githubusercontent.com/124479181/217111524-f5d851f2-cb61-477f-bc68-17518fc9e878.png)
+
 
 
 ## Query records with more than one ParcelID
@@ -96,7 +97,7 @@ Link to Alex's playlist. https://www.youtube.com/watch?v=8rO7ztF4NtU&list=PLUaB-
 	HAVING COUNT (PropertyAddress) > 1
 	ORDER BY ParcelID
 	
-!Casas6
+![Casas6](https://user-images.githubusercontent.com/124479181/217111580-de00e693-f47e-4783-9c23-7ccf3bc256d0.png)
 
 
 ### ParcelID and PropertyAddress query from the above query
@@ -118,7 +119,7 @@ Link to Alex's playlist. https://www.youtube.com/watch?v=8rO7ztF4NtU&list=PLUaB-
 		AND a.[UniqueID ]<> b.[UniqueID ]
 	WHERE a.PropertyAddress IS NULL;
 	
-!Casas7
+![Casas7](https://user-images.githubusercontent.com/124479181/217111586-41d33337-f58e-490c-b0f1-f2d3a76e2618.png)
 
 
 ### Updating ParcelID addresses with null addresses
@@ -131,9 +132,9 @@ Link to Alex's playlist. https://www.youtube.com/watch?v=8rO7ztF4NtU&list=PLUaB-
 		AND a.[UniqueID ]<> b.[UniqueID ]
 	WHERE a.PropertyAddress IS NULL;
 	
-!Casas8
+![Casas8](https://user-images.githubusercontent.com/124479181/217111622-c11b2931-25c9-413d-80d8-76829668070a.png)
 
-!Casas9
+![Casas9](https://user-images.githubusercontent.com/124479181/217111630-5404f87a-9157-451b-907b-a51619fba6ff.png)
  
 
 
@@ -144,7 +145,7 @@ Link to Alex's playlist. https://www.youtube.com/watch?v=8rO7ztF4NtU&list=PLUaB-
 		SELECT DISTINCT(PropertyAddress)
 		FROM Nashville..Houses;
 		
-!Casas10
+![Casas10](https://user-images.githubusercontent.com/124479181/217111690-08480fea-cc72-41f1-a4a8-2a2c6445ea7c.png)
 
 
 ### Query for address division, value before comma
@@ -153,7 +154,7 @@ Link to Alex's playlist. https://www.youtube.com/watch?v=8rO7ztF4NtU&list=PLUaB-
 		SUBSTRING (PropertyAddress, 1, CHARINDEX(',', PropertyAddress) - 1) as Direccion
 		FROM Nashville..Houses;
 		
-!Casas11
+![Casas11](https://user-images.githubusercontent.com/124479181/217111693-71ae2879-96c9-4bfb-867d-a3517c183624.png)
 
 
 ### Query for city division, value after comma
@@ -169,7 +170,7 @@ Link to Alex's playlist. https://www.youtube.com/watch?v=8rO7ztF4NtU&list=PLUaB-
 		UPDATE Nashville..Houses
 		SET PropertyDireccion = (SUBSTRING (PropertyAddress, 1, CHARINDEX(',', PropertyAddress) - 1));
 
-!Casas12
+![Casas12](https://user-images.githubusercontent.com/124479181/217111696-dc6c5e7b-0694-42c2-ad49-9de4face4038.png)
 
 ### Add the column and values ​​for city
 
@@ -192,7 +193,7 @@ Link to Alex's playlist. https://www.youtube.com/watch?v=8rO7ztF4NtU&list=PLUaB-
 		SELECT DISTINCT(OwnerAddress)
 		FROM Nashville..Houses;
 		
-!Casas13
+![Casas13](https://user-images.githubusercontent.com/124479181/217111800-2c802b69-d9f0-4203-ba13-dc228fafcdec.png)
 
 
 ### Query for the division of values ​​in OwnerAddress
@@ -202,7 +203,7 @@ Link to Alex's playlist. https://www.youtube.com/watch?v=8rO7ztF4NtU&list=PLUaB-
 				PARSENAME(REPLACE(OwnerAddress, ',', '.'),1)
 		FROM Nashville..Houses;
 		
-!Casas14
+![Casas14](https://user-images.githubusercontent.com/124479181/217111831-f2b1c132-c259-48ae-9fa3-724d4c394b96.png)
 
 
 
@@ -214,7 +215,7 @@ Link to Alex's playlist. https://www.youtube.com/watch?v=8rO7ztF4NtU&list=PLUaB-
 		UPDATE Nashville..Houses
 		SET OwnerDireccion = PARSENAME(REPLACE(OwnerAddress, ',', '.'),3);
 		
-!Casas15
+![Casas15](https://user-images.githubusercontent.com/124479181/217111883-bb7f59be-78a5-418b-a73e-105cbf91f455.png)
 
 
 ### Add column and values ​​for owner city
@@ -243,7 +244,7 @@ Link to Alex's playlist. https://www.youtube.com/watch?v=8rO7ztF4NtU&list=PLUaB-
 		GROUP BY SoldAsVacant
 		ORDER BY Frecuencia;
 		
-!Casas16
+![Casas16](https://user-images.githubusercontent.com/124479181/217111886-15e5bc76-4c48-4ef0-ba26-376bf2da9312.png)
 
 ### Query values ​​allowed in SoldAsVacant
 
@@ -261,8 +262,8 @@ Link to Alex's playlist. https://www.youtube.com/watch?v=8rO7ztF4NtU&list=PLUaB-
 			 WHEN SoldAsVacant = 'N' THEN 'No'
 			 ELSE SoldAsVacant
 			 END)
-!Casas17
-!Casas18
+![Casas17](https://user-images.githubusercontent.com/124479181/217111891-c22a7ef9-2d79-4a40-8146-16135fc808dd.png)
+![Casas18](https://user-images.githubusercontent.com/124479181/217111949-4c887a23-1a80-41e1-9ff5-1cc5abeb0681.png)
 
 
 ## Duplicate removal
@@ -307,7 +308,7 @@ Link to Alex's playlist. https://www.youtube.com/watch?v=8rO7ztF4NtU&list=PLUaB-
 		FROM TablaTem
 		WHERE DUPLICADO >1
 		
-!Casas19
+![Casas19](https://user-images.githubusercontent.com/124479181/217111973-06a0de8c-ac7e-4a2d-aaec-0543569ae724.png)
 
 
 ### Remove unnecessary columns ###
@@ -315,7 +316,7 @@ Link to Alex's playlist. https://www.youtube.com/watch?v=8rO7ztF4NtU&list=PLUaB-
 		ALTER TABLE Nashville..Houses
 		DROP COLUMN OwnerAddress, TaxDistrict, PropertyAddress
 		
-!Casas20
+![Casas20](https://user-images.githubusercontent.com/124479181/217112019-81260127-40ba-4ed5-ba53-faaf65671d00.png)
 
 
 ##  Remove unnecessary spaces in string attributes
@@ -325,7 +326,7 @@ Link to Alex's playlist. https://www.youtube.com/watch?v=8rO7ztF4NtU&list=PLUaB-
 		FROM Nashville..Houses
 		WHERE LEN(LandUse) <> LEN(TRIM(REPLACE(LandUse,'  ','')))
 		
-!Casas21
+![Casas21](https://user-images.githubusercontent.com/124479181/217112023-a978e933-77d6-4d77-af73-4b0a5146c69b.png)
 
 
 ### Value update CONDOMINIUM OFC  OR OTHER COM CONDO ###> CONDOMINIUM OFC OR OTHER COM CONDO
@@ -335,7 +336,7 @@ Link to Alex's playlist. https://www.youtube.com/watch?v=8rO7ztF4NtU&list=PLUaB-
 			 ELSE LandUse
 			 END)
 			 
-!Casas22
+![Casas22](https://user-images.githubusercontent.com/124479181/217112053-238323bd-ac60-4d7b-a6ed-22961ffe7e0e.png)
 
 
 ### Update validation
@@ -427,7 +428,7 @@ Link to Alex's playlist. https://www.youtube.com/watch?v=8rO7ztF4NtU&list=PLUaB-
 		FROM Nashville..Houses
 		WHERE LEN(OwnerCiudad) <> LEN(TRIM(REPLACE(OwnerCiudad,'  ','')));
 
-!Casas23
+![Casas23](https://user-images.githubusercontent.com/124479181/217112061-9e0f863a-4188-4c1a-8141-65762dded7ea.png)
 
 /*
 Cities with errors that should be corrected in the database
@@ -456,4 +457,4 @@ Cities with errors that should be corrected in the database
 	ALTER TABLE Nashville.dbo.Houses ALTER COLUMN YearBuilt int;  
 	GO 
 	
-!Casas24
+![Casas24](https://user-images.githubusercontent.com/124479181/217112135-5c385007-5049-4d9a-84e3-04148035e364.png)
